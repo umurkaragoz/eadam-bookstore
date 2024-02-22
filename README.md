@@ -14,18 +14,12 @@ $ npm install
 
 ## Running the app
 
-```bash
-# development
-$ npm run start
+1. Copy `.env.example` and create `.env` file
+2. Set appropriate values for variables in the `.env` file
+3. Start PostgreSQL by running `docker-compose up`
+4. Start NestJS application by running `npm run start`
+5. Navigate to http://localhost:3000/api to use interact with the application using built-in Swagger interface
 
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
-```
-
-Navigate to `localhost:3000/api` to use interact with the application using built-in Swagger interface.
 
 ## Test
 
