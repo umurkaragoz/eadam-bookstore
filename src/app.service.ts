@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Global, Injectable } from '@nestjs/common';
 import { UserSeeder } from './core/seeders/user.seeder';
 
 @Injectable()
