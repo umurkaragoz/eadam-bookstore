@@ -1,6 +1,5 @@
-
 export const configuration = () => {
-  const entities =  'dist/**/entities/*.js';
+  const entities = 'dist/**/entities/*.js';
 
   return {
     DATABASE: {
@@ -14,5 +13,6 @@ export const configuration = () => {
       synchronize: true,
       logging: process.env.TYPEORM_LOGGING === 'true',
     },
+    JWT_SECRET_KEY: process.env.JWT_SECRET,
   };
 };
