@@ -21,19 +21,16 @@ export class BookstoresService {
   }
 
   async getInventory(bookstoreId: number) {
-    const bookIds = await this.bookInventoryRepo
-      .find({
-        select: ['bookId'],
-        where: { bookstoreId },
-      })
-      .then((bookInventories) =>
-        bookInventories.map((bookInventory) => bookInventory.bookId),
-      );
-
-    return await this.bookRepo.find({
-      where: {
-        bookId: In(bookIds),
+    const rows = await this.bookInventoryRepo.find({
+      where: { bookstoreId },
+      relations: {
+        book: true,
       },
     });
+
+    return rows.map((row) => ({
+      quantity: row.quantity,
+      ...row.book,
+    }));
   }
 }

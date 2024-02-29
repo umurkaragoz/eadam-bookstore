@@ -44,6 +44,7 @@ export class BookInventorySeeder {
         bookInventories.push({
           bookId: bookId,
           bookstoreId: bookstoreId as any,
+          quantity: Math.ceil(Math.random() * 100),
         });
       }
 

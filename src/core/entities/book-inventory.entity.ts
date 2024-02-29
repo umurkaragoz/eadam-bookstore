@@ -32,6 +32,9 @@ export class BookInventoryEntity {
   @Column('int', { name: 'bookstore_id' })
   bookstoreId: number;
 
+  @Column('int', { name: 'quantity' })
+  quantity: number;
+
   @CreateDateColumn({ name: 'created_at' })
   createdAt: Date;
 }

@@ -9,6 +9,7 @@ import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 import { JwtModule } from '@nestjs/jwt';
 import { BookstoresModule } from './bookstores/bookstores.module';
+import { BooksModule } from './books/books.module';
 
 @Module({
   imports: [
@@ -29,6 +30,7 @@ import { BookstoresModule } from './bookstores/bookstores.module';
     AuthModule,
     UsersModule,
     BookstoresModule,
+    BooksModule,
     JwtModule,
   ],
   controllers: [AppController],
