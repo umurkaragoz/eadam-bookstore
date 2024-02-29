@@ -10,7 +10,6 @@ async function bootstrap() {
     .setTitle('E-Adam Bookstore')
     .setDescription('A sample project for E-Adam')
     .setVersion('1.0')
-    .addTag('bookstore')
     .build();
 
   const document = SwaggerModule.createDocument(app, config);

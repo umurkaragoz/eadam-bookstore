@@ -8,6 +8,7 @@ import { SeederModule } from './core/seeders/seeder.module';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 import { JwtModule } from '@nestjs/jwt';
+import { BookstoresModule } from './bookstores/bookstores.module';
 
 @Module({
   imports: [
@@ -27,6 +28,7 @@ import { JwtModule } from '@nestjs/jwt';
     SeederModule,
     AuthModule,
     UsersModule,
+    BookstoresModule,
     JwtModule,
   ],
   controllers: [AppController],

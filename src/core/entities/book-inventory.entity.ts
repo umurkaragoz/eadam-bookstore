@@ -1,6 +1,8 @@
 import {
+  Column,
   CreateDateColumn,
   Entity,
+  Index,
   JoinColumn,
   ManyToOne,
   PrimaryGeneratedColumn,
@@ -18,9 +20,17 @@ export class BookInventoryEntity {
   @JoinColumn({ name: 'book_id' })
   book: BookEntity;
 
+  @Index()
+  @Column('int', { name: 'book_id' })
+  bookId: number;
+
   @ManyToOne(() => BookstoreEntity, (bookstore) => bookstore.inventory)
   @JoinColumn({ name: 'bookstore_id' })
   bookstore: BookEntity;
+
+  @Index()
+  @Column('int', { name: 'bookstore_id' })
+  bookstoreId: number;
 
   @CreateDateColumn({ name: 'created_at' })
   createdAt: Date;

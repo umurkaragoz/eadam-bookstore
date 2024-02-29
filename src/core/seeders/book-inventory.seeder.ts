@@ -35,22 +35,22 @@ export class BookInventorySeeder {
       const randomBookIds = [];
       for (const bookId of bookIds) {
         // each bookstore will have approximately a quarter of the available books.
-        if (Math.random() <= 0.25) continue;
+        if (Math.random() >= 0.25) continue;
         randomBookIds.push(bookId);
       }
 
-      const bookInventorys = [];
+      const bookInventories = [];
       for (const bookId of randomBookIds) {
-        bookInventorys.push({
-          book: bookId,
-          bookstore: bookstoreId as any,
+        bookInventories.push({
+          bookId: bookId,
+          bookstoreId: bookstoreId as any,
         });
       }
 
       // bulk insert book inventory data for this bookstore
       await this.dataSource
         .getRepository(BookInventoryEntity)
-        .insert(bookInventorys);
+        .insert(bookInventories);
     }
   }
 }

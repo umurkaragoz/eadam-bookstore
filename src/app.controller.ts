@@ -1,7 +1,7 @@
-import { Controller, Get, Req, UseGuards } from '@nestjs/common';
+import { Controller, UseGuards } from '@nestjs/common';
 import { AppService } from './app.service';
 import { AuthGuard } from './auth/guards/auth.guard';
-import { ApiBearerAuth, ApiOperation } from '@nestjs/swagger';
+import { ApiBearerAuth } from '@nestjs/swagger';
 
 @Controller()
 @ApiBearerAuth()
@@ -11,13 +11,5 @@ export class AppController {
 
   async onApplicationBootstrap() {
     await this.appService.setupAndSeedDatabase();
-  }
-
-  @Get()
-  @ApiOperation({
-    summary: 'List all sessions.',
-  })
-  getHello(@Req() req): string {
-    return req.user;
   }
 }
