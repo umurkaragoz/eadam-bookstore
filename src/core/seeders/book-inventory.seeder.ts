@@ -34,7 +34,7 @@ export class BookInventorySeeder {
     for (const bookstoreId of bookstoreIds) {
       const randomBookIds = [];
       for (const bookId of bookIds) {
-        // each bookstore will have approximately a quarter of the available books.
+        // each bookstore will have approximately a quarter of the available book.
         if (Math.random() >= 0.25) continue;
         randomBookIds.push(bookId);
       }

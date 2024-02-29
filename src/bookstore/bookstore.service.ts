@@ -6,7 +6,7 @@ import { BookInventoryEntity } from '../core/entities/book-inventory.entity';
 import { BookEntity } from '../core/entities/book.entity';
 
 @Injectable()
-export class BookstoresService {
+export class BookstoreService {
   constructor(
     @InjectRepository(BookstoreEntity)
     private readonly bookstoreRepo: Repository<BookstoreEntity>,

@@ -1,19 +1,19 @@
 import { Controller, Get, Param, UseGuards } from '@nestjs/common';
 import { ApiBearerAuth, ApiOperation, ApiTags } from '@nestjs/swagger';
 import { AuthGuard } from '../auth/guards/auth.guard';
-import { BooksService } from './books.service';
+import { BookService } from './book.service';
 import { BookEntity } from '../core/entities/book.entity';
 
-@Controller('books')
+@Controller('book')
 @ApiBearerAuth()
 @ApiTags('Books')
 @UseGuards(AuthGuard)
 export class BookController {
-  constructor(private readonly bookService: BooksService) {}
+  constructor(private readonly bookService: BookService) {}
 
   @Get()
   @ApiOperation({
-    summary: 'List all books.',
+    summary: 'List all book.',
   })
   async listBooks(): Promise<BookEntity[]> {
     return await this.bookService.find();
@@ -21,7 +21,7 @@ export class BookController {
 
   @Get(':id/inventory')
   @ApiOperation({
-    summary: 'List available books in this book.',
+    summary: 'List bookstore which this book is available in.',
   })
   findOne(@Param('id') id: string) {
     return this.bookService.getInventory(+id);

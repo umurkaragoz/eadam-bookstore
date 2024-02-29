@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { BooksService } from './books.service';
+import { BookService } from './book.service';
 import { BookEntity } from '../core/entities/book.entity';
 import { BookController } from './book.controller';
 import { JwtModule } from '@nestjs/jwt';
@@ -16,8 +16,8 @@ import { BookstoreEntity } from '../core/entities/bookstore.entity';
     ]),
     JwtModule,
   ],
-  providers: [BooksService],
-  exports: [BooksService],
+  providers: [BookService],
+  exports: [BookService],
   controllers: [BookController],
 })
-export class BooksModule {}
+export class BookModule {}
